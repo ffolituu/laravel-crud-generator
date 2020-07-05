@@ -18,10 +18,14 @@ Si vous avez vos propres fichiers de commandes, dans ce cas pensez à récupére
 > php artisan crud:index Todo
 
 **Créer un fichier show.blade.php**
-```php artisan crud:show Todo```
+
+```
+php artisan crud:show Todo
+```
 
 **Créer un fichier edit.blade.php**
-```php artisan crud:edit Todo```
+```
+php artisan crud:edit Todo```
 
 **Créer un fichier create.blade.php**
 ```php artisan crud:create Todo```
