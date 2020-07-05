@@ -2,6 +2,7 @@
 create a crud system quickly with laravel 7
 
 Create Crud System V0.1
+
 Le dossier Console contient des dossier et fichiers qui permettent d'enclancher
 différente commandes pour réaliser un système de crud rapidement.
 
@@ -26,8 +27,10 @@ les dossiers Commands, Skeletons et le fichier Kernel dans votre dossier app\Con
 > php artisan crud:controller Todo
 
 --- Important ---
+
 Cette version permet uniquement de réaliser un crud dans le model n'a aucne dépedance
 
 --- Reste à faire ---
+
 Formulaire avec création de input de type :
 integer | boolean | enum | foreign_key
