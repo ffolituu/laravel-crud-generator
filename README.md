@@ -10,6 +10,7 @@ Idéal pour les débuts de projet Web, Laravel CRUD Generator permet de génére
 
 # configuration requise
 > Larvel >= 5.4
+
 > php 5.6
 
 # Installation
