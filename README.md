@@ -1,6 +1,6 @@
-# laravel CRUD :: *Version 0.1*
+# laravel CRUD ::
 Create a crud system quickly with laravel 7
-
+*version0.1*
 Le reposito contient des dossiers et fichiers qui permettent d'enclancher différentes commandes pour réaliser un système de crud rapidement.
 
 # Installation
