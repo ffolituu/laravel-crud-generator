@@ -1,14 +1,25 @@
-# Laravel CRUD Generator
-Create a crud system quickly with laravel 7
+# A propos de Laravel CRUD Generator
 
 *Version 0.1*
 
-Le reposito contient des dossiers et fichiers qui permettent d'enclancher différentes commandes pour réaliser un système de crud rapidement.
+Créer un système de CRUD rapidement.
+
+Idéal pour les débuts de projet Web, Laravel CRUD Generator permet de générer :
+* Des fichiers de vue
+* Un fichier controller
+
+# configuration requise
+> Larvel >= 5.4
+> php 5.6
 
 # Installation
 
 Téléchargez et remplacez le dossier Console dans votre projet Laravel.
 Si vous avez vos propres fichiers de commandes, dans ce cas pensez à récupérer les fichiers nécessaires.
+
+*Note*
+La génération de fichier utilise le framework css de Bootstrap 4
+Le template
 
 # Création de fichiers pour la view
 
@@ -49,9 +60,9 @@ php artisan crud:controller Todo
 Cette version permet uniquement de réaliser un crud dont le model n'a aucne dépendance
 
 # --- A terminer ---
--create.blade.php
+* create.blade.php
 
--edit.blade.php
+* edit.blade.php
 
 Création des form_group pour différents types de Input (select, checkbox, textarea, number, email...) suivi des dépendances.
 
