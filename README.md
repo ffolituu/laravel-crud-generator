@@ -1,4 +1,4 @@
-# laravel CRUD ::
+# laravel CRUD
 Create a crud system quickly with laravel 7
 
 *version0.1*
