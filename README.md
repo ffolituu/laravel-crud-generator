@@ -1,7 +1,7 @@
-# laravel CRUD
+# Laravel CRUD Generator
 Create a crud system quickly with laravel 7
 
-*version 0.1*
+*Version 0.1*
 
 Le reposito contient des dossiers et fichiers qui permettent d'enclancher différentes commandes pour réaliser un système de crud rapidement.
 
