@@ -10,7 +10,7 @@ Le reposito contient des dossiers et fichiers qui permettent d'enclancher diffé
 Téléchargez et remplacez le dossier Console dans votre projet Laravel.
 Si vous avez vos propres fichiers de commandes, dans ce cas pensez à récupérer les fichiers nécessaires.
 
-# Création de fichier pour la view
+# Création de fichiers pour la view
 
 *Exemple Model Todo*
 
