@@ -33,7 +33,8 @@ Si vous avez vos propres fichiers de commandes, dans ce cas pensez à récupére
 Cette version permet uniquement de réaliser un crud dont le model n'a aucne dépendance
 
 # --- Reste à terminer ---
--create.blade.php
--edit.blade.php
+--create.blade.php
+--edit.blade.php
+
 Création des form_group pour différents types de Input (select, checkbox, textarea, number, email...) suivi des dépendances.
 
