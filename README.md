@@ -22,7 +22,7 @@ Si vous avez vos propres fichiers de commandes, dans ce cas pensez à récupére
 La génération de fichier utilise le framework css de Bootstrap 4
 Le template
 
-# Création de fichiers pour la view
+# Création de fichiers pour la vue
 
 *Exemple Model Todo*
 
