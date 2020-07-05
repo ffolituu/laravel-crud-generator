@@ -1,7 +1,5 @@
-# laravel CRUD
+# laravel CRUD :: *Version 0.1*
 Create a crud system quickly with laravel 7
-
-**Version 0.1 **
 
 Le reposito contient des dossiers et fichiers qui permettent d'enclancher différentes commandes pour réaliser un système de crud rapidement.
 
@@ -33,8 +31,9 @@ Si vous avez vos propres fichiers de commandes, dans ce cas pensez à récupére
 Cette version permet uniquement de réaliser un crud dont le model n'a aucne dépendance
 
 # --- Reste à terminer ---
---create.blade.php
---edit.blade.php
+-create.blade.php
+
+-edit.blade.php
 
 Création des form_group pour différents types de Input (select, checkbox, textarea, number, email...) suivi des dépendances.
 
