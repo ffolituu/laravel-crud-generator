@@ -6,9 +6,11 @@ Create a crud system quickly with laravel 7
 Le dossier Console contient des dossier et fichiers qui permettent d'enclancher différentes commandes pour réaliser un système de crud rapidement.
 
 **Installation**
+
 Si votre dossier Console de Laravel est vierge alors télécharger le dossier Console pour le remplacer.
 
 **Utilisation pour la view (Exemple comme model Todo)**
+
 - Créer un fichier index.blade.php
 > php artisan crud:index Todo
 
@@ -22,11 +24,14 @@ Si votre dossier Console de Laravel est vierge alors télécharger le dossier Co
 > php artisan crud:create Todo
 
 **Utilisation pour le controller**
+
 > php artisan crud:controller Todo
 
 **--- Important ---**
+
 Cette version permet uniquement de réaliser un crud dans le model n'a aucne dépedance
 
 **--- Reste à faire ---**
+
 Formulaire avec création de input de type :
 integer | boolean | enum | foreign_key
