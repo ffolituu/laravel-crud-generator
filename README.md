@@ -1,7 +1,7 @@
 # laravel CRUD
 Create a crud system quickly with laravel 7
 
-*version0.1*
+*version 0.1*
 
 Le reposito contient des dossiers et fichiers qui permettent d'enclancher différentes commandes pour réaliser un système de crud rapidement.
 
@@ -10,7 +10,9 @@ Le reposito contient des dossiers et fichiers qui permettent d'enclancher diffé
 Téléchargez et remplacez le dossier Console dans votre projet Laravel.
 Si vous avez vos propres fichiers de commandes, dans ce cas pensez à récupérer les fichiers nécessaires.
 
-# Utilisation pour la view (Exemple comme model Todo)
+# Utilisation pour la view
+
+*Exemple Model Todo*
 
 **Créer un fichier index.blade.php**
 > php artisan crud:index Todo
