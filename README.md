@@ -20,7 +20,6 @@ Si vous avez vos propres fichiers de commandes, dans ce cas pensez à récupére
 
 *Note*
 La génération de fichier utilise le framework css de Bootstrap 4
-Le template
 
 # Création de fichiers pour la vue
 
@@ -56,14 +55,15 @@ php artisan crud:create Todo
 php artisan crud:controller Todo
 ```
 
-# --- Important ---
+# Important ---
 
 Cette version permet uniquement de réaliser un crud dont le model n'a aucne dépendance
 
-# --- A terminer ---
-* create.blade.php
+# A terminer ---
+[ ] le fichier create.blade.php > Pour le reste de types de champs (select, checkbox, textarea, number, email..)
+[ ] le fichier edit.blade.php > Pour le reste de types de champs (select, checkbox, textarea, number, email..)
 
-* edit.blade.php
-
-Création des form_group pour différents types de Input (select, checkbox, textarea, number, email...) suivi des dépendances.
+# A faire ---
+[ ] Créer une nouvelle commande pour la génération d'un layout
+[ ] Générer les resources pour les routes
 
