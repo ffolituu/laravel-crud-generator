@@ -55,15 +55,15 @@ php artisan crud:create Todo
 php artisan crud:controller Todo
 ```
 
-# Important ---
+### Important
 
 Cette version permet uniquement de réaliser un crud dont le model n'a aucne dépendance
 
-# A terminer ---
-[ ] le fichier create.blade.php > Pour le reste de types de champs (select, checkbox, textarea, number, email..)
-[ ] le fichier edit.blade.php > Pour le reste de types de champs (select, checkbox, textarea, number, email..)
+### A terminer
+- [ ] le fichier create.blade.php > Pour le reste de types de champs (select, checkbox, textarea, number, email..)
+- [ ] le fichier edit.blade.php > Pour le reste de types de champs (select, checkbox, textarea, number, email..)
 
-# A faire ---
-[ ] Créer une nouvelle commande pour la génération d'un layout
-[ ] Générer les resources pour les routes
+### A faire
+- [ ] Créer une nouvelle commande pour la génération d'un layout
+- [ ] Générer les resources pour les routes
 
