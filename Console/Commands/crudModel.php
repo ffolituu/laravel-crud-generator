@@ -3,23 +3,27 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 
-class crudController extends Command
+class crudModel extends Command
 {
+
+    // EX command : php artisan crud:migration Person name,string,unique;slug,string,nullable;age,integer,nullable
+
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'crud:controller {model}';
+    protected $signature = 'crud:model {model} {fillable}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a Controller with crud system (Eg. > php artisan crud:controller Todo)';
+    protected $description = 'Create a Model with fields (Eg. > php artisan crud:model Person name,slug,...)';
 
     /**
      * Create a new command instance.
@@ -38,39 +42,30 @@ class crudController extends Command
      */
     public function handle()
     {
+
         /*------------
             Variable declaration
         ---------------------------------------*/
+        $fillable = $this->argument()['fillable'];
         $model  = $this->argument()['model'];
-
-        
-        // In case the Model ends with a Y
-        $last_word = substr($model, -1);
-        if($last_word == 'y'){
-            $table = strtolower(substr($model, 0, -1)).'ies';
-        }else{
-            $table = strtolower($model).'s';
-        }
 
         /*------------
             Duplicate And Move File
         ---------------------------------------*/
-        $skeleton_file = base_path('app/Console/Skeletons/controller.php');
-        $new_file      = base_path('app/Http/Controllers/'.$model.'Controller.php');
+        $skeleton_file = base_path('app/Console/Skeletons/model.php');
+        $new_file      = base_path('app/Models/'.$model.'.php');
         copy($skeleton_file, $new_file);
 
         /*------------
             Handle file
         ---------------------------------------*/
         // Get All Fields
-        $model_lower = strtolower($model);
-
         // Open File for reading and modification
         $text=fopen($new_file,'r');
         $contenu=file_get_contents($new_file);
         $contenuMod=str_replace(
-            ['_table_', '_model_', '_modelower_'],
-            [$table, $model, $model_lower],
+            ['_model_', '_fillable_'],
+            [$model, $fillable],
             $contenu
         );
         fclose($text);
@@ -79,6 +74,6 @@ class crudController extends Command
         $text2=fopen($new_file,'w+');
         fwrite($text2,$contenuMod);
         fclose($text2);
-
+        
     }
 }

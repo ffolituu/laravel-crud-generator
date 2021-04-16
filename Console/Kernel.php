@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\bakeModel::class,
+        Commands\crudMigration::class,
         Commands\crudIndex::class,
         Commands\crudShow::class,
         Commands\crudEdit::class,

@@ -96,7 +96,5 @@ class crudIndex extends Command
         fwrite($text2,$contenuMod);
         fclose($text2);
 
-        echo 'Success';
-
     }
 }
