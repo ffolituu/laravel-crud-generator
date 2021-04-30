@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layout-crud.layout')
 
 @section('content')
-<h3 class="float-left">Liste des _table_</h3>
-<a href="{{route('_table_.create')}}" class="btn btn-primary btn-sm float-right mb-3">Ajouter une tâche</a>
-<div class="clearfix"></div>
+<h3 class="float-start">_table_ list</h3>
+<a href="{{route('_table_.create')}}" class="btn btn-primary btn-sm float-end mb-3">+ New</a>
+<div class="clearfix mb-3"></div>
     @if ($message = Session::get('success'))
         <div class="alert alert-success">{{ $message }}</div>
     @endif

@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\URL;
 
 class crudMigration extends Command
 {
@@ -47,22 +48,48 @@ class crudMigration extends Command
             Explode table fields
         ---------------------------------------*/
         $fields = explode(';', $this->argument()['table_fields']);
+        $column_types = ['bigIncrements','bigInteger','binary','boolean','char','dateTimeTz','dateTime','date','decimal','double','enum','float','foreignId','geometryCollection','geometry','id','increments','integer','ipAddress','json','jsonb','lineString','longText','macAddress','mediumIncrements','mediumInteger','mediumText','morphs','multiLineString','multiPoint','multiPolygon','nullableMorphs','nullableTimestamps','nullableUuidMorphs','point','polygon','rememberToken','set','smallIncrements','smallInteger','softDeletesTz','softDeletes','string','text','timeTz','time','timestampTz','timestamp','timestampsTz','timestamps','tinyIncrements','tinyInteger','tinyText','unsignedBigInteger','unsignedDecimal','unsignedInteger','unsignedMediumInteger','unsignedSmallInteger','unsignedTinyInteger','uuidMorphs','uuid','year'];
         $row_option = null;
         $row_field_ouput = null;
         $fillable = null;
 
-        foreach($fields as $row_field){
+        foreach($fields as $row_field)
+        {
             $row = explode(',',$row_field);
-            if(isset($row[3])){
-                dd('sorry! but the declaration of fields only reaches 3 level. Ex: \'name(level 1),string(level 2),unique(level 3)');
-            }
-            if(isset($row[2])){
-                $row_option = '->'.$row[2].'();'."\n\t\t\t";
-            }else{
-                $row_option = null;
+
+            if(!in_array($row[1],$column_types)){
+                $this->error('"'.$row[1].'" field type error ! ');
+                $this->comment("To help you find the valid fields, go to https://laravel.com/docs/8.x/migrations#available-column-types");
+                $this->comment("Otherwise go to the github documentation ...");
+                return;
             }
 
-            $row_field_ouput .= '$table->'.$row[1].'(\''.$row[0].'\')'.$row_option; 
+            if(isset($row[3])){
+                $this->error('sorry! but the declaration of fields only reaches 3 level. Ex: \'name(level 1),string(level 2),unique(level 3)');
+                return;
+            }
+
+            if($row[1] == 'enum'){
+
+                $tab_crochet = ['[', ']'];
+                $tab_slash   = ['/'];
+                $row[2] = str_replace($tab_crochet, "'", $row[2]);
+                $row[2] = str_replace($tab_slash, "','", $row[2]);
+
+                $row_option = ';'."\n\t\t\t";
+                $row_field_ouput .= '$table->'.$row[1].'(\''.$row[0].'\', ['.$row[2].'])'.$row_option; 
+            
+            }else{
+
+                if(isset($row[2])){
+                    $row_option = '->'.$row[2].'();'."\n\t\t\t";
+                }else{
+                    $row_option = ';'."\n\t\t\t";
+                }
+
+                $row_field_ouput .= '$table->'.$row[1].'(\''.$row[0].'\')'.$row_option; 
+            }
+
             $fillable .= '\''.$row[0].'\',';
         }
 
@@ -115,8 +142,20 @@ class crudMigration extends Command
         /*------------
             Launch Artisan Command Migrate
         ---------------------------------------------*/
-        Artisan::call('migrate');
-        $this->info('+ File migrated successfully !');
+        Artisan::call('migrate:fresh');
+        $this->info('+ Database table created successfully !');
+
+        /*------------
+            Launch Artisan Command CRUD ROUTE
+        ---------------------------------------------*/
+        Artisan::call('crud:route', ['model' => $model]);
+        $this->info('+ Route updated successfully !');
+
+        /*------------
+            Launch Artisan Command CRUD LAYOUT
+        ---------------------------------------------*/
+        Artisan::call('crud:layout');
+        $this->info('+ Layout created successfully !');
 
         /*------------
             Launch Artisan Command Model
@@ -136,6 +175,7 @@ class crudMigration extends Command
         Artisan::call('crud:index',['model' => $model]);
         $this->info('+ View Index resource file created successfully !');
 
-        $this->info('Info : Add this code to the web route file : Route::resource(\''.$table.'\', '.$model.'Controller::class);');
+        $this->comment('Consult the page '.URL::full().'/'.$table);
+
     }
 }

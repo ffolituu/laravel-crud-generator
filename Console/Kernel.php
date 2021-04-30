@@ -13,7 +13,10 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
+        Commands\crudClear::class,
         Commands\crudMigration::class,
+        Commands\crudRoute::class,
+        Commands\crudLayout::class,
         Commands\crudIndex::class,
         Commands\crudShow::class,
         Commands\crudEdit::class,
